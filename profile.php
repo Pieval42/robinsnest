@@ -66,8 +66,8 @@
         $tw = $th = $max;
       }
 
-      $tmp = imagecreatetruecolor($tw, $th);
-      imagecopyresampled($tmp, $src, 0, 0, 0, 0, $tw, $th, $w, $h);
+      $tmp = imagecreatetruecolor(round($tw, 0, PHP_ROUND_HALF_UP), round($th, 0, PHP_ROUND_HALF_UP));
+      imagecopyresampled($tmp, $src, 0, 0, 0, 0, round($tw, 0, PHP_ROUND_HALF_UP), round($th, 0, PHP_ROUND_HALF_UP), round($w, 0, PHP_ROUND_HALF_UP), round($h, 0, PHP_ROUND_HALF_UP));
       imageconvolution($tmp, array(array(-1, -1, -1),
         array(-1, 16, -1), array(-1, -1, -1)), 8, 0);
       imagejpeg($tmp, $saveto);
